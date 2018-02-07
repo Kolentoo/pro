@@ -22,7 +22,7 @@ Page({
    */
   onLoad: function (options) {
     wx.request({
-      url: 'https://api.douban.com/v2/movie/in_theaters', 
+      url: 'http://t.yushu.im/v2/movie/in_theaters', 
       data: {
       },
       header: {
