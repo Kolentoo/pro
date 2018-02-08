@@ -5,22 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    imgUrls: [
-      'http://img02.tooopen.com/images/20150928/tooopen_sy_143912755726.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175866434296.jpg',
-      'http://img06.tooopen.com/images/20160818/tooopen_sy_175833047715.jpg'
-    ],
+    mdetail: [],
+    stars: [1,1,1,1,1],
     indicatorDots: false,
     autoplay: false,
     interval: 5000,
     duration: 300,
-    indicatorDots:true
+    displayItem:2,
+    indicatorDots:false,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let self = this;
     wx.request({
       url: 'http://t.yushu.im/v2/movie/in_theaters', 
       data: {
@@ -29,9 +28,15 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success: function (res) {
-        console.log(res.data)
+        self.setData({
+          mdetail:res.data.subjects
+        })
+        console.log(self.data.mdetail);
+        // let score = self.data.mdetail.rating.average;
+        // console.log(score)
       }
     })
+    console.log(this.data.stars)
   },
 
   /**

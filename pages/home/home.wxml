@@ -1,11 +1,27 @@
 <!--home.wxml-->
 <view id="home">
-  <swiper indicator-dots="{{indicatorDots}}"
-    autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
-    <block wx:for="{{imgUrls}}" wx:key="wkey">
-      <swiper-item>
-        <image src="{{item}}" class="slide-image"/>
-      </swiper-item>
-    </block>
-  </swiper>
+  <view class="now-hot">
+    <text class="title">正在热映</text>
+    <swiper indicator-dots="{{indicatorDots}}" display-multiple-items="{{displayItem}}" previous-margin="{{pmargin}}" 
+    next-margin="{{nmargin}}"
+      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{mdetail}}" wx:key="wkey">
+        <swiper-item>
+          <image src="{{item.images.large}}" class="slide-image"/>
+          <text class="name">{{item.title}}</text>
+          <view class="rating">
+            <view class="stars">
+              <image wx:if="{{i==1}}" wx:for-item="i" wx:for="{{stars}}" wx:key="str" src="../../images/star1.png" class="str">
+              </image>
+              <!-- <image wx:else wx:for="{{stars}}" wx:key="str2" src="../../images/star2.png" class="str">
+              </image> -->
+            </view>
+            <view class="score">
+              {{item.rating.average}}
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
 </view>
