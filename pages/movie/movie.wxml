@@ -1,0 +1,49 @@
+<!--pages/movie/movie.wxml-->
+<view class="film">
+  <view class="dbj" style="background:url({{info.images.large}})">
+    <view class="detail clearfix">
+      <image class="film-pic fl" src="{{info.images.large}}">
+      </image>
+      <view class="desc fl clearfix">
+        <text class="title b">{{info.title}}</text>
+        <view class="evaluate">
+          <view class="stars">
+            <image wx:for="{{info.rating.average>9?[1,2,3,4,5]:info.rating.average>7?[1,2,3,4]:info.rating.average>5?[1,2,3]:info.rating.average>3?[1,2]:info.rating.average>1?[1]:[]}}" wx:key="str1" src="../../images/star2.png" class="str">
+            </image>
+            <image wx:for="{{info.rating.average>9?[]:info.rating.average>7?[1]:info.rating.average>5?[1,2]:info.rating.average>3?[1,2,3]:info.rating.average>1?[1,2,3,4]:[1,2,3,4,5]}}" wx:key="str2" src="../../images/star1.png" class="str">
+            </image>
+            <text class="average">{{info.rating.average}}</text>
+          </view>
+          <view class="comments">
+            {{info.comments_count}}评价
+          </view>
+        </view>
+        <view class="info-list">
+          演员：<text wx:for="{{info.casts}}" wx:key="name" class="name">{{item.name}}</text>
+        </view>
+        <view class="info-list">
+          国家：<text class="country" wx:key="country" wx:for="{{info.countries}}">{{item}}</text>
+        </view>
+        <view class="info-list">
+          类型：<text class="type" wx:key="type" wx:for="{{info.genres}}">{{item}}</text>
+        </view>
+
+
+      </view>
+    </view>
+  </view>
+  <view class="plot">
+    <text class="block plot-title">剧情简介</text>
+    <text class="block plot-con">{{info.summary}}</text>
+  </view>
+  <view class="actor-box">
+    <text class="actor-title">演职人员</text>
+    <scroll-view scroll-x class="actor">
+      <view class="actor-list" wx:for="{{info.casts}}" wx:key="actor">
+        <image class="photo block" src="{{item.avatars.large}}"></image>
+        <text class="actor-name block">{{item.name}}</text>
+      </view>
+    </scroll-view>
+  </view>
+
+ </view> 

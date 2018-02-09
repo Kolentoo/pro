@@ -1,25 +1,72 @@
 <!--home.wxml-->
 <view id="home">
-  <view class="now-hot">
+  <view class="now-hot movie">
     <text class="title">正在热映</text>
     <swiper indicator-dots="{{indicatorDots}}" display-multiple-items="{{displayItem}}" previous-margin="{{pmargin}}" 
     next-margin="{{nmargin}}"
       autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
       <block wx:for="{{mdetail}}" wx:key="wkey">
-        <swiper-item>
-          <image src="{{item.images.large}}" class="slide-image"/>
-          <text class="name">{{item.title}}</text>
-          <view class="rating">
-            <view class="stars">
-              <image wx:if="{{i==1}}" wx:for-item="i" wx:for="{{stars}}" wx:key="str" src="../../images/star1.png" class="str">
-              </image>
-              <!-- <image wx:else wx:for="{{stars}}" wx:key="str2" src="../../images/star2.png" class="str">
-              </image> -->
+        <swiper-item class="sitem">
+          <navigator url="../movie/movie?id={{item.id}}">
+            <image src="{{item.images.large}}" class="slide-image"/>
+            <text class="name">{{item.title}}</text>
+            <view class="rating">
+              <view class="stars">
+                <image wx:for="{{item.rating.average>9?[1,2,3,4,5]:item.rating.average>7?[1,2,3,4]:item.rating.average>5?[1,2,3]:item.rating.average>3?[1,2]:item.rating.average>1?[1]:[]}}" wx:key="str1" src="../../images/star2.png" class="str">
+                </image>
+              </view>
+              <view class="stars">
+                <image wx:for="{{item.rating.average>9?[]:item.rating.average>7?[1]:item.rating.average>5?[1,2]:item.rating.average>3?[1,2,3]:item.rating.average>1?[1,2,3,4]:[1,2,3,4,5]}}" wx:key="str2" src="../../images/star1.png" class="str">
+                </image>
+              </view>
+              <view class="score">
+                {{item.rating.average}}
+              </view>
             </view>
-            <view class="score">
-              {{item.rating.average}}
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="comming movie">
+    <text class="title">即将上映</text>
+    <swiper indicator-dots="{{indicatorDots}}" display-multiple-items="{{displayItem}}" previous-margin="{{pmargin}}" 
+    next-margin="{{nmargin}}"
+      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{comming}}" wx:key="wkey">
+        <swiper-item class="sitem">
+          <navigator url="../movie/movie?id={{item.id}}">
+            <image src="{{item.images.large}}" class="slide-image"/>
+            <text class="name">{{item.title}}</text>
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view class="top movie">
+    <text class="title">口碑排行</text>
+    <swiper indicator-dots="{{indicatorDots}}" display-multiple-items="{{displayItem}}" previous-margin="{{pmargin}}" 
+    next-margin="{{nmargin}}"
+      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{top}}" wx:key="wkey">
+        <swiper-item class="sitem">
+          <navigator url="../movie/movie?id={{item.id}}">
+            <image src="{{item.images.large}}" class="slide-image"/>
+            <text class="name">{{item.title}}</text>
+            <view class="rating">
+              <view class="stars">
+                <image wx:for="{{item.rating.average>9?[1,2,3,4,5]:item.rating.average>7?[1,2,3,4]:item.rating.average>5?[1,2,3]:item.rating.average>3?[1,2]:item.rating.average>1?[1]:[]}}" wx:key="str1" src="../../images/star2.png" class="str">
+                </image>
+              </view>
+              <view class="stars">
+                <image wx:for="{{item.rating.average>9?[]:item.rating.average>7?[1]:item.rating.average>5?[1,2]:item.rating.average>3?[1,2,3]:item.rating.average>1?[1,2,3,4]:[1,2,3,4,5]}}" wx:key="str2" src="../../images/star1.png" class="str">
+                </image>
+              </view>
+              <view class="score">
+                {{item.rating.average}}
+              </view>
             </view>
-          </view>
+          </navigator>
         </swiper-item>
       </block>
     </swiper>

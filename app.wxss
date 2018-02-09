@@ -8,3 +8,9 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+.block {display: block;}
+.b {font-weight:bold;}
+.fl {float:left;}
+.fr {float:right;}
+.clearfix:after,.clearfix:before{content:" ";display:table}.clearfix:after{clear:both}

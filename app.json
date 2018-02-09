@@ -1,6 +1,9 @@
 {
   "pages":[
     "pages/home/home",
+    "pages/movie/movie",
+    
+    
     "pages/index/index",
     
     "pages/logs/logs"
@@ -8,7 +11,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "Kolento",
     "navigationBarTextStyle":"black"
   }
 }

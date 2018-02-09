@@ -1,30 +1,27 @@
-// pages/home/home.js
+// pages/movie/movie.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    mdetail: [],
-    comming:[],
-    top:[],
-    indicatorDots: false,
-    autoplay: false,
-    interval: 5000,
-    duration: 300,
-    displayItem:2,
-    indicatorDots:false,
+    info:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    let self = this;
+  onLoad: function (params) {
+    // console.log(params)
     let douban = 'http://t.yushu.im';
     // let douban = 'https://douban.uieee.com';
+    let self = this;
+    let ugroup = getCurrentPages();
+    let purl = ugroup[ugroup.length-1];
+    let pid = purl.options.id;
     wx.request({
-      url: `${douban}/v2/movie/in_theaters`, 
+      url: `${douban}/v2/movie/subject/259`,
+      // url: `${douban}/v2/movie/subject/${pid}`,
       data: {
       },
       header: {
@@ -32,47 +29,18 @@ Page({
       },
       success: function (res) {
         self.setData({
-          mdetail:res.data.subjects
+          info: res.data
         });
-        let md = self.data.mdetail;
-        let sitem = wx.createSelectorQuery();
-        let sm = sitem.select('#sitem');
+        console.log(res.data)
       }
     });
-    wx.request({
-      url: `${douban}/v2/movie/coming_soon`,
-      data: {
-      },
-      header: {
-        'content-type': 'json' // 默认值
-      },
-      success: function (res) {
-        self.setData({
-          comming: res.data.subjects
-        })
-      }
-    });
-    wx.request({
-      url: `${douban}/v2/movie/top250`,
-      data: {
-      },
-      header: {
-        'content-type': 'json' // 默认值
-      },
-      success: function (res) {
-        self.setData({
-          top: res.data.subjects 
-        })
-      }
-    });
-
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+  
   },
 
   /**
