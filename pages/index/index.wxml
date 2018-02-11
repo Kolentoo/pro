@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container" bindtap="handletouchmove">
+<view class="container" bindtap="menuon">
   <view class="userinfo {{show2==1?'style-off':''}}">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -34,6 +34,35 @@
   <!-- <image class="bj2" src="../../images/bj2.jpg"></image> -->
   <image class="bj3 {{show4==1?'picon1':''}}" src="../../images/bj3.jpg"></image>
   <image class="bj4 {{show5==1?'picon2':''}}" src="../../images/bj4.jpg"></image>
+</view>
+<view class="new-con {{menuShow==1?'mshow':''}}" >
+  <image class="bj1 vm" src='../../images/bj1.jpg'></image>
+  <view class="content">
+    <text class="title block tc b">Chosen By You</text>
+    <image class="arrow2 vm block" src='../../images/arrow2.png'></image>
+    <view class="menu-group">
+      <view class="menu-list">
+        <navigator url='../../pages/film/film'>
+          <image class="vm menu1" src='../../images/menu1.jpg'></image>
+          <text class="menu-txt">Movie</text>
+        </navigator>
+      </view>
+      <view class="menu-list">
+        <image class="vm menu2" src='../../images/menu2.jpg'></image>
+        <text class="menu-txt">Bus</text>
+      </view>
+      <view class="menu-list">
+        <image class="vm menu3" src='../../images/menu3.jpg'></image>
+        <text class="menu-txt">Map</text>
+      </view>
+      <view class="menu-list">
+        <image class="vm menu4" src='../../images/menu4.jpg'></image>
+        <text class="menu-txt">Read</text>
+      </view>
+    </view>
+    <text class="block about tc b">About me</text>
+  </view>
+  <image class="vm close block" src='../../images/close.png' bindtap="menuoff"></image>
 </view>
 
 

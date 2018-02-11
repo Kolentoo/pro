@@ -11,6 +11,7 @@ Page({
     show3:'0',
     show4:'0',
     show5:'0',
+    menuShow:'0',
     greet:'Hello',
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -52,19 +53,19 @@ Page({
     let ntime = myDate.getHours();
     if(6<ntime&&ntime<12){
       this.setData({
-        greet:'Be honest rather clever'
+        greet:'Sunshine '
       });
     }else if(12<ntime&&ntime<18){
       this.setData({
-        greet: 'Beware beginnings'
+        greet: 'Passion'
       });
     }else if(18<ntime&&ntime<22){
       this.setData({
-        greet: 'Business is business'
+        greet: 'Enjoy'
       });
     }else{
       this.setData({
-        greet: 'By doing we learn'
+        greet: 'Lullaby'
       });
     }
     setTimeout(() => {
@@ -85,18 +86,15 @@ Page({
       hasUserInfo: true
     })
   },
-  handletouchmove: function () {
+  menuon: function () {
     this.setData({
-      show1: '0'
+      menuShow:'1'
     });
+  },
+  menuoff: function () {
     this.setData({
-      show3:'1'
+      menuShow: '0'
     });
-    this.setData({
-      show4: '1'
-    });
-    this.setData({
-      show5: '1'
-    });
+    conosole.log(this)
   }
 })

@@ -8,6 +8,8 @@
   box-sizing: border-box;
 } 
 
+.tc {text-align: center;}
+.vm {vertical-align: middle}
 .pf {font-family: PingFangTC-Light, sans-serif;}
 .block {display: block;}
 .b {font-weight:bold;}
