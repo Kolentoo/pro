@@ -6,15 +6,21 @@ Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
+    show1:'0',
+    show2:'0',
+    show3:'0',
+    show4:'0',
+    show5:'0',
+    greet:'Hello',
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
   //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
+  // bindViewTap: function() {
+  //   wx.navigateTo({
+  //     url: '../logs/logs'
+  //   })
+  // },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({
@@ -42,13 +48,55 @@ Page({
         }
       })
     }
+    let myDate = new Date();
+    let ntime = myDate.getHours();
+    if(6<ntime&&ntime<12){
+      this.setData({
+        greet:'Be honest rather clever'
+      });
+    }else if(12<ntime&&ntime<18){
+      this.setData({
+        greet: 'Beware beginnings'
+      });
+    }else if(18<ntime&&ntime<22){
+      this.setData({
+        greet: 'Business is business'
+      });
+    }else{
+      this.setData({
+        greet: 'By doing we learn'
+      });
+    }
+    setTimeout(() => {
+      this.setData({
+        show1: '1'
+      })
+    }, 1000);
+    setTimeout(() => {
+      this.setData({
+        show2: '1'
+      })
+    }, 600);
   },
   getUserInfo: function(e) {
-    console.log(e)
     app.globalData.userInfo = e.detail.userInfo
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  handletouchmove: function () {
+    this.setData({
+      show1: '0'
+    });
+    this.setData({
+      show3:'1'
+    });
+    this.setData({
+      show4: '1'
+    });
+    this.setData({
+      show5: '1'
+    });
   }
 })

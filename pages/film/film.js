@@ -1,4 +1,4 @@
-// pages/home/home.js
+// pages/film/film.js
 Page({
 
   /**
@@ -8,6 +8,7 @@ Page({
     mdetail: [],
     comming:[],
     top:[],
+    america:[],
     indicatorDots: false,
     autoplay: false,
     interval: 5000,
@@ -21,8 +22,8 @@ Page({
    */
   onLoad: function (options) {
     let self = this;
-    let douban = 'http://t.yushu.im';
-    // let douban = 'https://douban.uieee.com';
+    let douban = 'https://douban.uieee.com';
+    // let douban = 'https://liudongtushuguan.cn';
     wx.request({
       url: `${douban}/v2/movie/in_theaters`, 
       data: {
@@ -62,6 +63,19 @@ Page({
       success: function (res) {
         self.setData({
           top: res.data.subjects 
+        })
+      }
+    });
+    wx.request({
+      url: `${douban}/v2/movie/us_box`,
+      data: {
+      },
+      header: {
+        'content-type': 'json' // 默认值
+      },
+      success: function (res) {
+        self.setData({
+          america: res.data.subjects
         })
       }
     });

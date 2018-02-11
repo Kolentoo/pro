@@ -13,15 +13,15 @@ Page({
    */
   onLoad: function (params) {
     // console.log(params)
-    let douban = 'http://t.yushu.im';
-    // let douban = 'https://douban.uieee.com';
+    let douban = 'https://douban.uieee.com';
+    // let douban = 'https://liudongtushuguan.cn';
     let self = this;
     let ugroup = getCurrentPages();
     let purl = ugroup[ugroup.length-1];
     let pid = purl.options.id;
     wx.request({
-      url: `${douban}/v2/movie/subject/259`,
-      // url: `${douban}/v2/movie/subject/${pid}`,
+      // url: `${douban}/v2/movie/subject/259`,
+      url: `${douban}/v2/movie/subject/${pid}`,
       data: {
       },
       header: {

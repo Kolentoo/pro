@@ -5,10 +5,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  padding: 200rpx 0;
   box-sizing: border-box;
 } 
 
+.pf {font-family: PingFangTC-Light, sans-serif;}
 .block {display: block;}
 .b {font-weight:bold;}
 .fl {float:left;}

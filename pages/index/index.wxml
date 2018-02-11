@@ -1,16 +1,39 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
+<view class="container" bindtap="handletouchmove">
+  <view class="userinfo {{show2==1?'style-off':''}}">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view class="usermotto">
-    <navigator url="../../pages/home/home">
-      <text class="user-motto">Hello</text>
-    </navigator>  
+  <view class="usermotto {{show1==1?'user-off':''}}">
+    <text class="user-motto">{{greet}}</text> 
+    <image class="arrow block" src='../../images/arrow.png'></image>
   </view>
-  
+  <view class="entry">
+    <view class="entry-list ishow1 {{show3==1?'entry-on':''}}">
+      <navigator url='../../pages/film/film'>
+        <image src="../../images/icon1.png"></image>
+        <text class="block">电影</text>
+      </navigator>
+    </view>
+    <view class="entry-list ishow2 {{show3==1?'entry-on':''}}">
+      <navigator url='../../pages/film/film'>
+        <image src="../../images/icon2.png"></image>
+        <text class="block">交通</text>
+      </navigator>
+    </view>
+    <view class="entry-list ishow3 {{show3==1?'entry-on':''}}">
+      <navigator url='../../pages/film/film'>
+        <image src="../../images/icon3.png"></image>
+        <text class="block">地图</text>
+      </navigator>
+    </view>
+  </view>
+  <!-- <image class="bj2" src="../../images/bj2.jpg"></image> -->
+  <image class="bj3 {{show4==1?'picon1':''}}" src="../../images/bj3.jpg"></image>
+  <image class="bj4 {{show5==1?'picon2':''}}" src="../../images/bj4.jpg"></image>
 </view>
+
+

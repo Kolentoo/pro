@@ -1,5 +1,5 @@
 <!--home.wxml-->
-<view id="home">
+<view id="film">
   <view class="now-hot movie">
     <text class="title">正在热映</text>
     <swiper indicator-dots="{{indicatorDots}}" display-multiple-items="{{displayItem}}" previous-margin="{{pmargin}}" 
@@ -71,4 +71,37 @@
       </block>
     </swiper>
   </view>
+  <view class="america movie">
+    <text class="title">北美排行</text>
+    <swiper indicator-dots="{{indicatorDots}}" display-multiple-items="{{displayItem}}" previous-margin="{{pmargin}}" 
+    next-margin="{{nmargin}}"
+      autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+      <block wx:for="{{america}}" wx:key="america">
+        <swiper-item class="sitem">
+          <navigator url="../movie/movie?id={{item.id}}">
+            <image src="{{item.subject.images.large}}" class="slide-image"/>
+            <text class="name">{{item.subject.title}}</text>
+            <view class="rating">
+              <view class="stars">
+                <image wx:for="{{item.subject.rating.average>9?[1,2,3,4,5]:item.subject.rating.average>7?[1,2,3,4]:item.subject.rating.average>5?[1,2,3]:item.subject.rating.average>3?[1,2]:item.subject.rating.average>1?[1]:[]}}" wx:key="str1" src="../../images/star2.png" class="str">
+                </image>
+              </view>
+              <view class="stars">
+                <image wx:for="{{item.subject.rating.average>9?[]:item.subject.rating.average>7?[1]:item.subject.rating.average>5?[1,2]:item.subject.rating.average>3?[1,2,3]:item.subject.rating.average>1?[1,2,3,4]:[1,2,3,4,5]}}" wx:key="str2" src="../../images/star1.png" class="str">
+                </image>
+              </view>
+              <view class="score">
+                {{item.subject.rating.average}}
+              </view>
+            </view>
+          </navigator>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>
+
+<view class="nav">
+  <bottom>
+  </bottom>
 </view>

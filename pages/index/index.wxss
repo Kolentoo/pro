@@ -1,21 +1,50 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.container {overflow: hidden;height: 100%;width: 100%;}
+.userinfo {display: flex;flex-direction: column;align-items: center;transition:all ease 0.8s;opacity: 0;transform: scale(0.7,0.7);margin-top: 120px;}
+.info-off {opacity: 0;transform: scale(0,0);z-index:-1;}
+.userinfo-avatar {width: 128rpx;height: 128rpx;margin: 20rpx;border-radius: 50%;}
+.userinfo-nickname {color: #aaa;}
+.usermotto {margin-top: 150px;transition: all ease 0.6s;opacity: 0;font-size: 16px;width:120px;text-align: center;}
+.user-off {opacity: 1;margin-top: 200px;}
+.style-off {transform: scale(1,1);opacity: 1;}
+.arrow {width: 20px;height:20px;margin:5px auto 0;}
+.entry {display: flex;justify-content: enter;margin-top: -30px;}
+.entry .entry-list {width: 100%;text-align: center;} 
+.entry .entry-list text{font-size: 14px;}
+.entry .entry-list image {width:50px;height:50px;border-radius:50%;margin:0 30px;animation: ipic 3s infinite;transform-origin:50% 80%;}
+.entry-list {opacity: 0;transform:translateY(150px);}
+.entry-on {animation: ishow 0.8s forwards;}
+.ishow1 {animation-delay: 0.2s;}
+.ishow2 {animation-delay: 0.4s;}
+.ishow3 {animation-delay: 0.6s;}
+.bj2 {vertical-align: middle;width: 50%;height:70px;margin: 60px auto 0;opacity: 0;transform:translateY(150px);animation: bj2 1.5s forwards;
+animation-delay: 3.4s;position:fixed;bottom:5px;}
+.bj3 {position:absolute;width:55px;height:165px;left:-55px;top:12%;}
+.bj4 {position:absolute;left:50%;top:8%;margin-left:-130px;width:50px;height:50px;opacity: 0;}
+.picon1 {animation: bj3 0.7s forwards;animation-delay: 0.8s;}
+.picon2 {animation: bj4 0.9s forwards;animation-delay: 1.1s;}
+
+@keyframes ishow{
+   0%{transform:translateY(150px);opacity: 0;}
+   100%{transform:translateY(0);opacity: 1;}
+ }
+@keyframes ipic{
+    0%{transform:rotate(-15deg);}
+    50%{transform:rotate(15deg);}
+    100%{transform:rotate(-15deg);}
+ }
+
+@keyframes bj2{
+  0%{transform:translateX(400px);opacity: 0;}
+  100%{transform:translateX(0px);opacity: 1;}
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+@keyframes bj3{
+  0%{left:-55px;}
+  100%{left:0;}
 }
 
-.userinfo-nickname {
-  color: #aaa;
-}
-
-.usermotto {
-  margin-top: 200px;
+@keyframes bj4{
+  0%{transform:scale(0.8,0.8);opacity: 0;}
+  100%{transform:scale(1,1);opacity: 1;}
 }
