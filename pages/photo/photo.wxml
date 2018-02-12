@@ -1,4 +1,8 @@
 <!--pages/photo/photo.wxml-->
+<view class="search cfont" id="search" >
+    <text class="type {{status[index]==0?'on':''}}" bindtap='changeType' data-index="{{index}}" data-text="{{item}}" wx:for="{{types}}" wx:key="types">{{item}}</text>
+</view>
+
 <view class="photo">
   <view class="left side">
     <view class="pics" wx:for="{{photos1}}" wx:key="key1">

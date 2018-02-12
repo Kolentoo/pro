@@ -19,7 +19,7 @@
     </navigator>
   </view>
     <view class="menu-list">
-    <navigator url='../../pages/video/video'>
+    <navigator url='../../pages/photo/photo'>
       <image class="vm mbj" src='../../images/mbj3.jpg'></image>
       <view class="chapter">
         <text class="ctitle block">VISUAL</text>
