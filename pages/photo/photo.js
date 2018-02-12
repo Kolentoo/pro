@@ -1,37 +1,48 @@
-// pages/movie/movie.js
+// pages/photo/photo.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    info:[]
+    photos:[],
+    photos1:[],
+    photos2:[],
+    count1:0,
+    count2:0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (params) {
-    // console.log(params)
-    // let douban = 'https://douban.uieee.com';
-    let douban = 'https://liudongtushuguan.cn';
+  onLoad: function (options) {
     let self = this;
-    let ugroup = getCurrentPages();
-    let purl = ugroup[ugroup.length-1];
-    let pid = purl.options.id;
     wx.request({
-      // url: `${douban}/v2/movie/subject/259`,
-      url: `${douban}/v2/movie/subject/${pid}`,
+      url: `https://www.apiopen.top/meituApi`,
       data: {
+        'page':1
       },
       header: {
         'content-type': 'json' // 默认值
       },
       success: function (res) {
         self.setData({
-          info: res.data
+          photos: res.data.data
         });
-        console.log(res.data)
+        self.data.photos.map(item =>{ 
+          if (self.data.count1 <= self.data.count2){
+            self.setData({
+              photos1: [...self.data.photos1,item.url],
+              count1:self.data.count1+1
+            });
+          }else{
+            self.setData({
+              photos2: [...self.data.photos2, item.url],
+              count2: self.data.count2 + 1
+            });
+          }
+        });
+        console.log(res.data.data)
       }
     });
   },

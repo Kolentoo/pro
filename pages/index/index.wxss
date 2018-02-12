@@ -1,4 +1,17 @@
 /**index.wxss**/
+.index .bj0 {position: fixed;top: 0;left: 0;width: 100%;height:100%;z-index:1;}
+.content {position: absolute;top: 0;left: 0;width: 100%;z-index: 5;}
+.content .option {padding:15px 15px 0;}
+.content .option-list {width: 40px;height: 40px;border-radius:50%;border:2px solid rgba(255,255,255,0.3);}
+.content .option-list image {margin:10px auto 0;}
+.content .menu-icon {width: 20px;height:20px;}
+.content .option-icon {width: 20px;height:20px;}
+.content .title-box {color:#fff;margin-top: 50%;}
+.content .title {font-size: 50px;}
+.content .author {font-size: 18px;color:#f1dec1;}
+.content .tips {font-size: 14px;color:#fff;position: fixed;left: 0;bottom:20px;width: 100%;}
+
+
 .container {overflow: hidden;height: 100%;width: 100%;}
 .userinfo {display: flex;flex-direction: column;align-items: center;transition:all ease 0.8s;opacity: 0;transform: scale(0.7,0.7);margin-top: 120px;}
 .info-off {opacity: 0;transform: scale(0,0);z-index:-1;}

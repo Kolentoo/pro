@@ -27,8 +27,6 @@
         <view class="info-list">
           类型：<text class="type" wx:key="type" wx:for="{{info.genres}}">{{item}}</text>
         </view>
-
-
       </view>
     </view>
   </view>

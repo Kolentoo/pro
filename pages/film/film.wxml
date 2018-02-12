@@ -1,7 +1,7 @@
 <!--home.wxml-->
-<view id="film">
+<view id="film" class="cfont">
   <view class="now-hot movie">
-    <text class="title">正在热映</text>
+    <text class="title">{{title1}}</text>
     <swiper indicator-dots="{{indicatorDots}}" display-multiple-items="{{displayItem}}" previous-margin="{{pmargin}}" 
     next-margin="{{nmargin}}"
       autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -29,7 +29,7 @@
     </swiper>
   </view>
   <view class="comming movie">
-    <text class="title">即将上映</text>
+    <text class="title">{{title2}}</text>
     <swiper indicator-dots="{{indicatorDots}}" display-multiple-items="{{displayItem}}" previous-margin="{{pmargin}}" 
     next-margin="{{nmargin}}"
       autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -44,7 +44,7 @@
     </swiper>
   </view>
   <view class="top movie">
-    <text class="title">口碑排行</text>
+    <text class="title">{{title3}}</text>
     <swiper indicator-dots="{{indicatorDots}}" display-multiple-items="{{displayItem}}" previous-margin="{{pmargin}}" 
     next-margin="{{nmargin}}"
       autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -72,7 +72,7 @@
     </swiper>
   </view>
   <view class="america movie">
-    <text class="title">北美排行</text>
+    <text class="title">{{title4}}</text>
     <swiper indicator-dots="{{indicatorDots}}" display-multiple-items="{{displayItem}}" previous-margin="{{pmargin}}" 
     next-margin="{{nmargin}}"
       autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
@@ -101,7 +101,7 @@
   </view>
 </view>
 
-<view class="nav">
+<view class="nav" hidden='hidden'>
   <bottom>
   </bottom>
 </view>

@@ -6,12 +6,6 @@ Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
-    show1:'0',
-    show2:'0',
-    show3:'0',
-    show4:'0',
-    show5:'0',
-    menuShow:'0',
     greet:'Hello',
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
@@ -85,16 +79,5 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  },
-  menuon: function () {
-    this.setData({
-      menuShow:'1'
-    });
-  },
-  menuoff: function () {
-    this.setData({
-      menuShow: '0'
-    });
-    conosole.log(this)
   }
 })

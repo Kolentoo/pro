@@ -9,6 +9,10 @@ Page({
     comming:[],
     top:[],
     america:[],
+    title1:'',
+    title2:'',
+    title3:'',
+    title4:'',
     indicatorDots: false,
     autoplay: false,
     interval: 5000,
@@ -22,8 +26,11 @@ Page({
    */
   onLoad: function (options) {
     let self = this;
-    let douban = 'https://douban.uieee.com';
-    // let douban = 'https://liudongtushuguan.cn';
+    // let douban = 'https://douban.uieee.com';
+    let douban = 'https://liudongtushuguan.cn';
+    wx.showLoading({
+      title: ''
+    });
     wx.request({
       url: `${douban}/v2/movie/in_theaters`, 
       data: {
@@ -33,11 +40,9 @@ Page({
       },
       success: function (res) {
         self.setData({
-          mdetail:res.data.subjects
+          mdetail:res.data.subjects,
+          title1:'正在热映'
         });
-        let md = self.data.mdetail;
-        let sitem = wx.createSelectorQuery();
-        let sm = sitem.select('#sitem');
       }
     });
     wx.request({
@@ -49,8 +54,10 @@ Page({
       },
       success: function (res) {
         self.setData({
-          comming: res.data.subjects
-        })
+          comming: res.data.subjects,
+          title2: '即将上映'
+        });
+        wx.hideLoading();
       }
     });
     wx.request({
@@ -62,7 +69,8 @@ Page({
       },
       success: function (res) {
         self.setData({
-          top: res.data.subjects 
+          top: res.data.subjects,
+          title3: '口碑排行'
         })
       }
     });
@@ -75,11 +83,13 @@ Page({
       },
       success: function (res) {
         self.setData({
-          america: res.data.subjects
+          america: res.data.subjects,
+          title4: '北美排行'
         })
       }
     });
 
+      
   },
 
   /**

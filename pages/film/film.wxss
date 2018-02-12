@@ -1,5 +1,5 @@
 /* pages/home/home.wxss */
-#film {padding-bottom: 35px;}
+/* #film {padding-bottom: 35px;} */
 #film .movie {margin-bottom:5px;}
 #film .title {font-size:16px;margin-left:5px;}
 #film swiper {width: 100%;height:280px;margin-left:-5px;margin-top:10px;}

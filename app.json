@@ -1,6 +1,10 @@
 {
   "pages":[
+    "pages/photo/photo",
     "pages/index/index",
+    "pages/read/read",
+    
+    "pages/menu/menu",
     "pages/film/film",
     
     

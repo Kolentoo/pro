@@ -1,37 +1,37 @@
-// pages/movie/movie.js
+// pages/photo/photo.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    info:[]
+    news: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (params) {
-    // console.log(params)
-    // let douban = 'https://douban.uieee.com';
-    let douban = 'https://liudongtushuguan.cn';
+  onLoad: function (options) {
+    // wx.showLoading({
+    //   title: ''
+    // });
+    // setTimeout(()=>{
+    //   wx.hideLoading();
+    // },2000);
     let self = this;
-    let ugroup = getCurrentPages();
-    let purl = ugroup[ugroup.length-1];
-    let pid = purl.options.id;
     wx.request({
-      // url: `${douban}/v2/movie/subject/259`,
-      url: `${douban}/v2/movie/subject/${pid}`,
+      url: `https://www.apiopen.top/satinApi?type=1`, 
       data: {
+        'page':1
       },
       header: {
         'content-type': 'json' // 默认值
       },
       success: function (res) {
         self.setData({
-          info: res.data
+          news: res.data.data
         });
-        console.log(res.data)
+        console.log(res.data.data)
       }
     });
   },

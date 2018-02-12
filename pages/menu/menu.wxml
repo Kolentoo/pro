@@ -1,0 +1,46 @@
+<!--pages/menu/menu.wxml-->
+<view class="menu font">
+  <view class="menu-list">
+    <navigator url='../../pages/film/film'>
+      <image class="vm mbj" src='../../images/mbj1.jpg'></image>
+      <view class="chapter">
+        <text class="ctitle block">MOVIES</text>
+        <text class="cdesc block">You can't change the past</text>
+      </view>
+    </navigator>
+  </view>
+    <view class="menu-list">
+    <navigator url='../../pages/read/read'>
+      <image class="vm mbj" src='../../images/mbj2.jpg'></image>
+      <view class="chapter">
+        <text class="ctitle block">IFANR</text>
+        <text class="cdesc block">Stupid is as stupid does</text>
+      </view>
+    </navigator>
+  </view>
+    <view class="menu-list">
+    <navigator url='../../pages/video/video'>
+      <image class="vm mbj" src='../../images/mbj3.jpg'></image>
+      <view class="chapter">
+        <text class="ctitle block">VISUAL</text>
+        <text class="cdesc block">Miracles happen every day</text>
+      </view>
+    </navigator>
+  </view>
+    <view class="menu-list">
+      <navigator url='../../pages/music/music'>
+      <image class="vm mbj" src='../../images/mbj4.jpg'></image>
+      <view class="chapter">
+        <text class="ctitle block">MUSIC</text>
+        <text class="cdesc block">I laugh in the face of danger</text>
+      </view>
+    </navigator>
+  </view>
+    <view class="menu-list">
+    <image class="vm mbj" src='../../images/mbj5.jpg'></image>
+    <view class="chapter">
+      <text class="ctitle block">ABOUT ME</text>
+      <text class="cdesc block">Gone with The Wind</text>
+    </view>
+  </view>
+</view>

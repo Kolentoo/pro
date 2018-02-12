@@ -1,0 +1,7 @@
+/* pages/photo/photo.wxss */
+.photo {display: flex;justify-content: center;}
+.side {width:48.5%;}
+.left {margin:0 1%;}
+.right {margin-right: 1%}
+.pics {width:100%;}
+.pics image{width:100%;}

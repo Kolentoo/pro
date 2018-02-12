@@ -2,7 +2,7 @@
 
 .film-pic {width: 45%;height: 230px;margin-left:10px;}
 .detail {background: rgba(201,111,117,0.8);padding:10px 0;}
-.desc {width: 47.5%;margin:0 10px;color:#fff;}
+.desc {width: 47%;margin:0 10px;color:#fff;}
 .title {font-size: 20px;display: block;margin:5px 0;}
 .info-list {font-size: 14px;font-weight: bold;margin-bottom: 5px;}
 .info-list text {font-weight:normal;}

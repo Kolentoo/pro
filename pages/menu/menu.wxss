@@ -1,0 +1,6 @@
+/* pages/menu/menu.wxss */
+.menu-list {position: relative;}
+.menu .mbj {width:100%;height: 200px;}
+.menu-list .chapter {position: absolute;width: 100%;height:100%;top: 0;left: 0;text-align: center;color:#fff;}
+.menu-list .chapter .ctitle {font-size: 28px;margin-top: 80px;}
+.menu-list .chapter .cdesc {font-size: 20px;}

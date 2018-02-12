@@ -1,0 +1,13 @@
+<!--pages/photo/photo.wxml-->
+<view class="photo">
+  <view class="left side">
+    <view class="pics" wx:for="{{photos1}}" wx:key="key1">
+      <image src="{{item}}" mode="widthFix"></image>
+    </view>
+  </view>
+  <view class="right side">
+    <view class="pics" wx:for="{{photos2}}" wx:key="key2">
+      <image src="{{item}}" mode="widthFix"></image>
+    </view>
+  </view>
+</view>
