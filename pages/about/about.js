@@ -1,44 +1,30 @@
-// pages/photo/photo.js
+// pages/about/about.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    news: []
+    arrow1:'<',
+    arrow2:'>',
+    mclass:1
+  },
+  discover(){
+    this.setData({
+      mclass: 0
+    });
+  },
+  close() {
+    this.setData({
+      mclass: 1
+    });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.showLoading({
-    //   title: ''
-    // });
-    // setTimeout(()=>{
-    //   wx.hideLoading();
-    // },2000);
-    let self = this;
-    wx.request({
-      url: `https://3g.163.com/touch/jsonp/sy/recommend/0-9.html?hasad=1&miss=48&refresh=B02&offset=0&size=10&callback=syrec4`, 
-      data: {
-      },
-      header: {
-        'content-type': 'json' // 默认值
-      },
-      success: function (res) {
-        // self.setData({
-        //   news: res.data
-        // });
-        let jsoncon = res.data;
-        let jgroup = jsoncon.replace('syrec4(','"s":"');
-        let jresult = jgroup.replace(':200})',':200}"');
-        let jjson = JSON.stringify(jresult);
-        let jfinal = JSON.parse(jjson);
-        console.log(jfinal);
 
-      }
-    });
   },
 
   /**

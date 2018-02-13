@@ -7,9 +7,9 @@
 .content .menu-icon {width: 20px;height:20px;}
 .content .option-icon {width: 20px;height:20px;}
 .content .title-box {color:#fff;margin-top: 50%;}
-.content .title {font-size: 50px;}
-.content .author {font-size: 18px;color:#f1dec1;}
-.content .tips {font-size: 14px;color:#fff;position: fixed;left: 0;bottom:20px;width: 100%;}
+.content .title {font-size: 40px;}
+.content .author {font-size: 14px;color:#f1dec1;}
+.content .tips {font-size: 12px;color:#fff;position: fixed;left: 0;bottom:20px;width: 100%;}
 
 
 .container {overflow: hidden;height: 100%;width: 100%;}

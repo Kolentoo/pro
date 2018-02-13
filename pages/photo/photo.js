@@ -12,10 +12,15 @@ Page({
     count2:0,
     key:'',
     tindex:'',
-    types: ['明星','美女','动漫','宠物','设计','摄影'],
-    status:[0,1,1,1,1,1]
+    types: ['明星','美女','动漫','宠物','设计','搞笑'],
+    status:[0,1,1,1,1,1],
+    page:1,
+    height:''
   },
   changeType(e){
+    wx.showLoading({
+      title: ''
+    });
     this.setData({
       key: e.target.dataset.text,
       tindex: e.target.dataset.index
@@ -23,16 +28,13 @@ Page({
 
     let self = this;
     let words = self.data.key;
-    self.data.status.map((item,index)=>{
-      if (index === self.data.tindex){
-        self.setData({
-          'status[index]':0
-        });
-      }else{
-        self.setData({
-          'status[index]':1
-        });
-      }
+    self.setData({
+      status:[1,1,1,1,1,1] 
+    });
+    let a = this.data.status.splice(this.data.tindex,1,0);
+    console.log(this.data.status)
+    self.setData({
+      status: [...a]
     });
     self.data.count1 = 0;
     self.data.count2 = 0;
@@ -47,8 +49,45 @@ Page({
         'content-type': 'json' // 默认值
       },
       success: function (res) {
+        wx.hideLoading();
         self.setData({
           photos: res.data.data
+        });
+        self.data.photos.map(item => {
+          if (self.data.count1 <= self.data.count2) {
+            self.setData({
+              photos1: [...self.data.photos1, item.thumbnail_url],
+              count1: self.data.count1 + 1
+            });
+          } else {
+            self.setData({
+              photos2: [...self.data.photos2, item.thumbnail_url],
+              count2: self.data.count2 + 1
+            });
+          }
+        });
+      }
+    });
+  },
+  lower(){
+    let pn1 = this.data.page;
+    let pn2 = pn1+1;
+    let self = this;
+    wx.request({
+      url: `https://image.baidu.com/channel/listjson?rn=30&tag2=%E5%85%A8%E9%83%A8&ie=utf8`,
+      data: {
+        'tag1': '明星',
+        'pn': pn2
+      },
+      header: {
+        'content-type': 'json' // 默认值
+      },
+      success: function (res) {
+        console.log(12365)
+        wx.hideLoading();
+        self.setData({
+          photos: res.data.data,
+          page: pn2
         });
         self.data.photos.map(item => {
           if (self.data.count1 <= self.data.count2) {
@@ -72,15 +111,24 @@ Page({
    */
   onLoad: function (options) {
     let self = this;
+    let sheight = wx.getSystemInfoSync().windowHeight;
+    self.setData({
+      height: sheight
+    });
+    wx.showLoading({
+      title: ''
+    });
     wx.request({
-      url: `https://image.baidu.com/channel/listjson?pn=0&rn=30&tag2=%E5%85%A8%E9%83%A8&ie=utf8`,
+      url: `https://image.baidu.com/channel/listjson?rn=30&tag2=%E5%85%A8%E9%83%A8&ie=utf8`,
       data: {
-        'tag1':'明星'
+        'tag1':'明星',
+        'pn':'1'
       },
       header: {
         'content-type': 'json' // 默认值
       },
       success: function (res) {
+        wx.hideLoading();
         self.setData({
           photos: res.data.data
         });
@@ -97,7 +145,6 @@ Page({
             });
           }
         });
-        console.log(res.data.data)
       }
     });
   },

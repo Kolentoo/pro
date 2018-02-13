@@ -1,13 +1,13 @@
 {
   "pages":[
-    "pages/photo/photo",
-    "pages/index/index",
     "pages/read/read",
+    "pages/index/index",
+    "pages/photo/photo",
+    "pages/robot/robot",
+    "pages/about/about",
     
     "pages/menu/menu",
     "pages/film/film",
-    
-    
     "pages/movie/movie",
     "pages/logs/logs"
   ],
