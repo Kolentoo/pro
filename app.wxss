@@ -8,6 +8,7 @@
   box-sizing: border-box;
 } 
 
+.hide {display: none;}
 .font {text-transform: uppercase;font-family: Georgia,serif;font-weight: 400;text-rendering: optimizelegibility;}
 .cfont {font-family: pingfang sc regular;}
 .tc {text-align: center;}

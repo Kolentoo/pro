@@ -1,26 +1,20 @@
-
+// pages/detail/detail.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    list:[]
+    content:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.showLoading({
-    //   title: ''
-    // });
-    // setTimeout(()=>{
-    //   wx.hideLoading();
-    // },2000);
     let self = this;
     wx.request({
-      url: `https://baobab.kaiyanapp.com/api/v4/tabs/selected`, 
+      url: `http://v3.wufazhuce.com:8000/api/onelist/3528/0?channel=wdj&version=4.0.2&uuid=ffffffff-a90e-706a-63f7-ccf973aae5ee&platform=android`,
       data: {
       },
       header: {
@@ -28,10 +22,8 @@ Page({
       },
       success: function (res) {
         self.setData({
-          list: res.data.itemList
+          body: con3
         });
-        console.log(res.data.itemList)
-       
       }
     });
   },
@@ -40,7 +32,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**

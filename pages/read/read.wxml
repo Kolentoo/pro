@@ -1,14 +1,22 @@
-<!--pages/photo/photo.wxml-->
+
 <view class="news cfont">
-   <view class="view-con" wx:for="{{news}}" wx:key="news">
-    <view class="new-list">
-      <view class="top clearfix">
+   <view class="view-con">
+    <view class="new-list {{item.type!='video'?'hide':''}}" wx:for="{{list}}" wx:key="list">
+      <!-- <view class="top clearfix">
         <text class="fl website b">{{item.theme_name==''?item.name:item.theme_name}}</text>
         <text class="fr time">{{item.passtime}}</text>
+      </view> -->
+      
+      <!-- <text class="description nlock">{{item.data.description}}</text> -->
+      <video class="video" src="{{item.data.playUrl}}"></video>
+      <!-- <image class="new-pic vm" src="{{item.data.cover.feed}}"></image> -->
+      <view class="content">
+        <text class="title block">{{item.data.title}}</text>
+        <text class="desc block">
+          {{item.data.description}}
+        </text>
       </view>
-      <text class="title block b">{{item.text}}</text>
-      <video class="video {{item.videouri==''?'video-off':''}}" src="{{item.videouri}}"></video>
-      <image class="new-pic vm {{item.videouri==''?'pic-on':''}}" src="{{item.cdn_img-0==0?'../../images/mbj1.jpg':item.cdn_img}}"></image>
     </view> 
   </view> 
+  <text class="more tc block">查看更多</text>
 </view>
