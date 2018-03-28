@@ -12,13 +12,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.showLoading({
-    //   title: ''
-    // });
-    // setTimeout(()=>{
-    //   wx.hideLoading();
-    // },2000);
     let self = this;
+    wx.showLoading({
+      title: ''
+    });
+
     wx.request({
       url: `https://baobab.kaiyanapp.com/api/v4/tabs/selected`, 
       data: {
@@ -30,7 +28,7 @@ Page({
         self.setData({
           list: res.data.itemList
         });
-        console.log(res.data.itemList)
+        wx.hideLoading();
        
       }
     });

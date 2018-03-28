@@ -1,3 +1,0 @@
-<!--pages/detail/detail.wxml-->
-<view clas="detail">{{body}}</view>
-

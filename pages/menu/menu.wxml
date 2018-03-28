@@ -19,10 +19,10 @@
     </navigator>
   </view>
     <view class="menu-list">
-    <navigator url='../../pages/photo/photo'>
+    <navigator url='../../pages/inter/inter'>
       <image class="vm mbj" src='../../images/mbj3.jpg'></image>
       <view class="chapter">
-        <text class="ctitle block">PICS</text>
+        <text class="ctitle block">LEISURE</text>
         <text class="cdesc block">Miracles happen every day</text>
       </view>
     </navigator>

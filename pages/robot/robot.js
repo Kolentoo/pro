@@ -7,7 +7,7 @@ Page({
   data: {
     userInfo:{},
     dialog:[
-      { types: 'robot', text:'HI',question:''}
+      { types: 'robot', text:'请随时调戏我~',question:''}
     ],
     kwords:'',
     toView: '#',
@@ -24,23 +24,16 @@ Page({
       dialog: [...this.data.dialog, {types:'user',text:'',question: this.data.kwords}],
       scroll:false
     });
-    this.setData({
-      kwords: ''
-    });
     wx.request({
-      url: `https://www.tuling123.com/openapi/api`,
+      url: `https://api.jisuapi.com/iqa/query?appkey=adfb0e1348ec0adf`,
       data: {
-        "key":"f0e9368e77744a66a0dcee85a01ed62e",
-        "info": this.data.kwords,
-        "loc":"",
-        "userid":"123456"
+        "question": this.data.kwords
       },
       header: {
         'content-type': 'json' // 默认值
       },
       success: function (res) {
-        console.log(res)
-        let answer = res.data.text;
+        let answer = res.data.result.content;
         self.setData({
           dialog: [...self.data.dialog, { types: 'robot', text: answer, question:''}],
           scroll: true
@@ -51,6 +44,9 @@ Page({
           });
         }, 200)
       }
+    });
+    this.setData({
+      kwords: ''
     });
   },
 

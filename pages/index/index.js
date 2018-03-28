@@ -9,13 +9,35 @@ Page({
     greet:'Hello',
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    nt:false
   },
-  //事件处理函数
-  // bindViewTap: function() {
-  //   wx.navigateTo({
-  //     url: '../logs/logs'
-  //   })
-  // },
+  onShareAppMessage: function (res) {
+    if (res.from === 'button') {
+      // 来自页面内转发按钮
+      console.log(res.target)
+    }
+    return {
+      title: '自定义转发标题',
+      path: 'pages/index/index',
+      success: function (res) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      }
+    }
+  },
+  notice(){
+    if(this.data.nt==false){
+      this.setData({
+        nt:true
+      });
+    }else{
+      this.setData({
+        nt: false
+      });
+    }
+  },
   onLoad: function () {
     if (app.globalData.userInfo) {
       this.setData({

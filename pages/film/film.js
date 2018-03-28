@@ -26,7 +26,6 @@ Page({
    */
   onLoad: function (options) {
     let self = this;
-    // let douban = 'https://douban.uieee.com';
     let douban = 'https://liudongtushuguan.cn';
     wx.showLoading({
       title: ''
