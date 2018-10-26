@@ -1,6 +1,0 @@
-{
-  "navigationBarTitleText": "电影",
-  "usingComponents": {
-    "bottom": "../../components/bottom/bottom"
-  }
-}
